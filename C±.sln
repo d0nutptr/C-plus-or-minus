@@ -3,16 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C± Lexer", "C± Lexer\C± Lexer.vcxproj", "{5E200597-0EC9-4ED0-858B-B978B5A38362}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C± Parser", "C± Parser\C± Parser.vcxproj", "{CEC45E89-07D0-4085-8963-144644ED07B3}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://iismathwizard.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = C±\u0020Lexer\\C±\u0020Lexer.vcxproj
-		SccProjectName1 = C±\u0020Lexer
-		SccLocalPath1 = C±\u0020Lexer
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
@@ -22,6 +15,10 @@ Global
 		{5E200597-0EC9-4ED0-858B-B978B5A38362}.Debug|Win32.Build.0 = Debug|Win32
 		{5E200597-0EC9-4ED0-858B-B978B5A38362}.Release|Win32.ActiveCfg = Release|Win32
 		{5E200597-0EC9-4ED0-858B-B978B5A38362}.Release|Win32.Build.0 = Release|Win32
+		{CEC45E89-07D0-4085-8963-144644ED07B3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CEC45E89-07D0-4085-8963-144644ED07B3}.Debug|Win32.Build.0 = Debug|Win32
+		{CEC45E89-07D0-4085-8963-144644ED07B3}.Release|Win32.ActiveCfg = Release|Win32
+		{CEC45E89-07D0-4085-8963-144644ED07B3}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
