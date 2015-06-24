@@ -6,7 +6,7 @@
 
 int main()
 {
-	Lexer * lexer = CPMLexerFactory::generateCPMLexer("test.txt");
+	Lexer * lexer = CPMLexerFactory::generateCPMLexer("ExampleCPlusOrMinusFile.txt");
 	std::vector<Token *> * tokens = new std::vector<Token *>();
 	lexer->beginLexing(tokens);
 
