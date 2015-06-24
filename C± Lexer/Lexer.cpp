@@ -1,4 +1,6 @@
 #include "Lexer.h"
+#include <iostream>
+#include <fstream>
 
 Lexer::Lexer(char * location)
 {

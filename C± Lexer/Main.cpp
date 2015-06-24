@@ -2,6 +2,7 @@
 #include "CPMLexerFactory.h"
 #include "TokenType.h"
 #include <iomanip>
+#include <iostream>
 
 int main()
 {
