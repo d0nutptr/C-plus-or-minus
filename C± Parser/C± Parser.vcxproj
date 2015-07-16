@@ -83,12 +83,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MetaToken.h" />
+    <ClInclude Include="MetaTokenConversionFactory.h" />
     <ClInclude Include="MetaTokenType.h" />
+    <ClInclude Include="Parser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\C± Lexer\Main.cpp" />
     <ClCompile Include="MetaToken.cpp" />
+    <ClCompile Include="MetaTokenConversionFactory.cpp" />
     <ClCompile Include="MetaTokenType.cpp" />
+    <ClCompile Include="Parser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C± Lexer\C± Lexer.vcxproj">

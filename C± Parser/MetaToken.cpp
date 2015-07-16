@@ -11,5 +11,25 @@ MetaToken::MetaToken(MetaTokenType * type, Token * baseToken)
 {
 	this->type = type;
 	this->contents = NULL;
-	this->rawContents = new std::string(baseToken->getName());
+	this->rawContents = baseToken;
+}
+
+bool MetaToken::isLeaf()
+{
+	return (this->rawContents != NULL);
+}
+
+Token * MetaToken::getBaseToken()
+{
+	return this->rawContents;
+}
+
+std::vector<MetaToken *> * MetaToken::getContents()
+{
+	return this->contents;
+}
+
+MetaTokenType * MetaToken::getType()
+{
+	return this->type;
 }
