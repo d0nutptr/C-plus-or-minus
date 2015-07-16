@@ -7,8 +7,9 @@
 class MetaTokenConversionFactory
 {
 public:
-	static std::vector<MetaToken *> * convertTokensToMetaTokens(std::vector<Token *> *);
-private:
+	std::vector<MetaToken *> * convertTokensToMetaTokens(std::vector<Token *> *);
 	MetaTokenConversionFactory(void);
+private:
+	std::vector<MetaTokenType *> * metaTokenTypes;
 };
 
