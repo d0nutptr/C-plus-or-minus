@@ -11,5 +11,6 @@ public:
 	MetaTokenConversionFactory(void);
 private:
 	std::vector<MetaTokenType *> * metaTokenTypes;
+	static Token * checkIfTypeNameMatches(Token *, std::string);
 };
 

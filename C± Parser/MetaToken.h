@@ -1,7 +1,8 @@
 #pragma once
 #include "Token.h"
-#include "MetaTokenType.h"
 #include <vector>
+
+class MetaTokenType;
 
 class MetaToken
 {

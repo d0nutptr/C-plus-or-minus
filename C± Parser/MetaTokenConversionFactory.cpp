@@ -168,7 +168,7 @@ MetaTokenConversionFactory::MetaTokenConversionFactory(void)
 	}));
 }
 
-Token * checkIfTypeNameMatches(Token * token, std::string name)
+Token * MetaTokenConversionFactory::checkIfTypeNameMatches(Token * token, std::string name)
 {
 	Token * result = NULL;
 
@@ -185,10 +185,5 @@ returns a vector of metatokens that are in the same order as the incoming tokens
 */
 std::vector<MetaToken *> * MetaTokenConversionFactory::convertTokensToMetaTokens(std::vector<Token *> * tokens)
 {
-	std::vector<MetaToken *> * metaTokens = new std::vector<MetaToken *>();
-
-	for(int i = 0; i < tokens->size(); i ++)
-	{
-		MetaTokenType * type;
-	}
+	return NULL; //TODO: implement
 }
