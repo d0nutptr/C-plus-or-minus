@@ -92,6 +92,6 @@ class partial ExtendedObj
 {
 	function String toString()
 	{
-		return "test of toString();"
+		return "test of toString()";
 	}
 }

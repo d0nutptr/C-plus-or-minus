@@ -1,6 +1,7 @@
 #include "Lexer.h"
 #include "CPMLexerFactory.h"
 #include "TokenType.h"
+#include "MetaTokenConversionFactory.h"
 #include <iomanip>
 #include <iostream>
 
@@ -14,6 +15,8 @@ int main()
 	{
 		std::cout << (*tokens)[i]->getName() << " - " << (*tokens)[i]->getType()->name << "\r\n";
 	}
+
+	std::vector<MetaToken *> * metaTokens = (new MetaTokenConversionFactory())->convertTokensToMetaTokens(tokens);
 
 	std::string test;
 	std::cin >> test;

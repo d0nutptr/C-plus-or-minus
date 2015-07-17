@@ -2,6 +2,8 @@
 
 MetaTokenConversionFactory::MetaTokenConversionFactory(void)
 {
+	this->metaTokenTypes = new std::vector<MetaTokenType *>();
+
 	this->metaTokenTypes->push_back(new MetaTokenType("OpenParan", [](Token * token)
 	{
 		return checkIfTypeNameMatches(token, "OpenParan");
@@ -185,5 +187,25 @@ returns a vector of metatokens that are in the same order as the incoming tokens
 */
 std::vector<MetaToken *> * MetaTokenConversionFactory::convertTokensToMetaTokens(std::vector<Token *> * tokens)
 {
-	return NULL; //TODO: implement
+	std::vector<MetaToken *> * translationList = new std::vector<MetaToken *>();
+
+	//iterate tokens
+	for(int i = 0; i < tokens->size(); i ++)
+	{
+		Token * currentToken = tokens->at(i);
+
+		//iterate metaTokens for match
+		for(int j = 0; j < metaTokenTypes->size(); j ++)
+		{
+			MetaTokenType * currentMetaTokenType = metaTokenTypes->at(j);
+
+			if(currentToken == currentMetaTokenType->tryToTranslateTokenToMetaToken(currentToken))
+			{
+				translationList->push_back(new MetaToken(currentMetaTokenType, currentToken));
+				break;
+			}
+		}
+	}
+
+	return translationList;
 }

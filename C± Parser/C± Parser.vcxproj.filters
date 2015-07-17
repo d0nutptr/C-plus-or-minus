@@ -38,13 +38,13 @@
     <ClCompile Include="MetaTokenType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\C± Lexer\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MetaTokenConversionFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

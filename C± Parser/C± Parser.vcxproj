@@ -88,7 +88,7 @@
     <ClInclude Include="Parser.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\C± Lexer\Main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MetaToken.cpp" />
     <ClCompile Include="MetaTokenConversionFactory.cpp" />
     <ClCompile Include="MetaTokenType.cpp" />
