@@ -1,0 +1,97 @@
+import "default.m";
+
+int a = 0 ;
+boolean b = false;
+char c = '2';
+double d = 10.2;
+String str = "String values";
+
+ExtendedObj _obj = null;
+
+String value = getObjSingleton().toString();
+
+print(value);
+
+if ( getObjSingleton() != null )
+{
+	boolean var = getObjSingleton() instanceof MyObject;
+}
+
+function ExtendedObj getObjSingleton()
+{
+	if (_obj == null )
+	{
+		_obj = new ExtendedObj(false);
+	}
+	
+	return _obj;
+}
+
+class MyObject 
+{
+	boolean myBool;
+	
+	MyObject(boolean a)
+	{
+		myBool = a;
+	}
+	
+	function char getChar()
+	{
+		return '\0';
+	}
+}
+
+class ExtendedObj : MyObject
+{
+	ExtendedObj(boolean a)
+	{
+		super (a);
+	}
+	
+	function char[] getChars()
+	{
+		char[] arr = new char[2];
+		arr[0] = getChar();
+		arr[1] = getChar();
+		return arr;
+	}
+	
+	function void doNothing(int a, boolean b)
+	{
+		return ;
+	}
+	
+	function String read()
+	{
+		return "\r\n";
+	}
+	
+	function int get()
+	{
+		for (Obj a in aSet) { print(a); }
+	}
+	
+	function int getInt()
+	{
+		int value = 0;
+		
+		if (obj instanceof b)
+		{
+			for (int i = 0; i < 10; i ++)
+			{
+				value = value + i;
+			}
+		}
+		
+		return value;
+	}
+}
+
+class partial ExtendedObj
+{
+	function String toString()
+	{
+		return "test of toString()";
+	}
+}
