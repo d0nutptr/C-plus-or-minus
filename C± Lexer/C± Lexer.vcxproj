@@ -21,7 +21,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -86,12 +86,12 @@
     <ClInclude Include="CPMLexerFactory.h" />
     <ClInclude Include="Lexer.h" />
     <ClInclude Include="Token.h" />
+    <ClInclude Include="TokenNames.h" />
     <ClInclude Include="TokenType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPMLexerFactory.cpp" />
     <ClCompile Include="Lexer.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Token.cpp" />
     <ClCompile Include="TokenType.cpp" />
   </ItemGroup>

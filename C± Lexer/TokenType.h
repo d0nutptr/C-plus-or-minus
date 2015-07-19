@@ -4,7 +4,7 @@
 class TokenType
 {
 public:
-	TokenType(std::string, std::string * (*function)(std::string *));
-	std::string name;
+	TokenType(const std::string *, std::string * (*function)(std::string *));
+	const std::string * name;
 	std::string * (*isTypeOfToken)(std::string *);
 };

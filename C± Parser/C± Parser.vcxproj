@@ -47,15 +47,18 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\C± Lexer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\pc\Documents\Visual Studio 2012\Projects\C±\C± Lexer;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,6 +80,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CPMParserFactory.h" />
+    <ClInclude Include="MetaToken.h" />
+    <ClInclude Include="MetaTokenConversionFactory.h" />
+    <ClInclude Include="MetaTokenType.h" />
+    <ClInclude Include="Parser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CPMParserFactory.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MetaToken.cpp" />
+    <ClCompile Include="MetaTokenConversionFactory.cpp" />
+    <ClCompile Include="MetaTokenType.cpp" />
+    <ClCompile Include="Parser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\C± Lexer\C± Lexer.vcxproj">
+      <Project>{5e200597-0ec9-4ed0-858b-b978b5a38362}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
