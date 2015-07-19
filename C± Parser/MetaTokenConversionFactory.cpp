@@ -1,180 +1,209 @@
 #include "MetaTokenConversionFactory.h"
+#include "TokenNames.h"
 
 MetaTokenConversionFactory::MetaTokenConversionFactory(void)
 {
 	this->metaTokenTypes = new std::vector<MetaTokenType *>();
 
-	this->metaTokenTypes->push_back(new MetaTokenType("OpenParan", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_OPEN_PARAN, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "OpenParan");
+		return checkIfTypeNameMatches(token, TOKEN_OPEN_PARAN);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("CloseParan", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_CLOSE_PARAN, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "CloseParan");
+		return checkIfTypeNameMatches(token, TOKEN_CLOSE_PARAN);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("OpenBracket", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_OPEN_BRACKET, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "OpenBracket");
+		return checkIfTypeNameMatches(token, TOKEN_OPEN_BRACKET);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("CloseBracket", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_CLOSE_BRACKET, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "CloseBracket");
+		return checkIfTypeNameMatches(token, TOKEN_CLOSE_BRACKET);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("OpenBrace", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_OPEN_BRACE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "OpenBrace");
+		return checkIfTypeNameMatches(token, TOKEN_OPEN_BRACE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("CloseBrace", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_CLOSE_BRACE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "CloseBrace");
+		return checkIfTypeNameMatches(token, TOKEN_CLOSE_BRACE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("class", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_CLASS, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "class");
+		return checkIfTypeNameMatches(token, TOKEN_CLASS);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("function", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_FUNCTION, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "function");
+		return checkIfTypeNameMatches(token, TOKEN_FUNCTION);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("for", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_FOR, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "for");
+		return checkIfTypeNameMatches(token, TOKEN_FOR);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("while", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_WHILE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "while");
+		return checkIfTypeNameMatches(token, TOKEN_WHILE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("new", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_NEW, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "new");
+		return checkIfTypeNameMatches(token, TOKEN_NEW);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("if", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IF, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "if");
+		return checkIfTypeNameMatches(token, TOKEN_IF);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("else", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_ELSE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "else");
+		return checkIfTypeNameMatches(token, TOKEN_ELSE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("in", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IN, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "in");
+		return checkIfTypeNameMatches(token, TOKEN_IN);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("null", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_NULL, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "null");
+		return checkIfTypeNameMatches(token, TOKEN_NULL);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("super", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_SUPER, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "super");
+		return checkIfTypeNameMatches(token, TOKEN_SUPER);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("this", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_THIS, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "this");
+		return checkIfTypeNameMatches(token, TOKEN_THIS);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("return", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_RETURN, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "return");
+		return checkIfTypeNameMatches(token, TOKEN_RETURN);
 	}));
 	
-	this->metaTokenTypes->push_back(new MetaTokenType("import", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IMPORT, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "import");
+		return checkIfTypeNameMatches(token, TOKEN_IMPORT);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("partial", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_PARTIAL, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "partial");
+		return checkIfTypeNameMatches(token, TOKEN_PARTIAL);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("Colon", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_COLON, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "Colon");
+		return checkIfTypeNameMatches(token, TOKEN_COLON);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("SemiColon", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_COMMA, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "SemiColon");
+		return checkIfTypeNameMatches(token, TOKEN_COMMA);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("PrimitiveType", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_SEMI_COLON, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "PrimitiveType");
+		return checkIfTypeNameMatches(token, TOKEN_SEMI_COLON);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("PreUnaryOperator", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_INT_TYPE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "PreUnaryOperator");
+		return checkIfTypeNameMatches(token, TOKEN_INT_TYPE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("PostUnaryOperator", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_DOUBLE_TYPE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "PostUnaryOperator");
+		return checkIfTypeNameMatches(token, TOKEN_DOUBLE_TYPE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("BinaryOperator", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_CHAR_TYPE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "BinaryOperator");
+		return checkIfTypeNameMatches(token, TOKEN_CHAR_TYPE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("AssignmentOperator", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_BOOLEAN_TYPE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "AssignmentOperator");
+		return checkIfTypeNameMatches(token, TOKEN_BOOLEAN_TYPE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("BooleanLiteral", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_VOID_TYPE, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "BooleanLiteral");
+		return checkIfTypeNameMatches(token, TOKEN_VOID_TYPE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("StringLiteral", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_PREUNARY_OPERATOR, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "StringLiteral");
+		return checkIfTypeNameMatches(token, TOKEN_PREUNARY_OPERATOR);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("IntLiteral", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_POSTUNARY_OPERATOR, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "IntLiteral");
+		return checkIfTypeNameMatches(token, TOKEN_POSTUNARY_OPERATOR);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("CharLiteral", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_BINARY_OPERATOR, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "CharLiteral");
+		return checkIfTypeNameMatches(token, TOKEN_BINARY_OPERATOR);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("ID", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_ASSIGNMENT_OPERATOR, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "ID");
+		return checkIfTypeNameMatches(token, TOKEN_ASSIGNMENT_OPERATOR);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType("DoubleLiteral", [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_BOOLEAN_LITERAL, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, "DoubleLiteral");
+		return checkIfTypeNameMatches(token, TOKEN_BOOLEAN_LITERAL);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_STRING_LITERAL, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_STRING_LITERAL);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_INT_LITERAL, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_INT_LITERAL);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_CHAR_LITERAL, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_CHAR_LITERAL);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_ID, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_ID);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_DOUBLE_LITERAL, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_DOUBLE_LITERAL);
 	}));
 }
 
-Token * MetaTokenConversionFactory::checkIfTypeNameMatches(Token * token, std::string name)
+/*
+will return the token if the type matches the name given, otherwise NULL. This is horribly designed.
+*/
+Token * MetaTokenConversionFactory::checkIfTypeNameMatches(Token * token, const std::string * type)
 {
 	Token * result = NULL;
 
-	if(token->getType()->name == name)
+	if(token->getType()->name == type)
 	{
 		result = token;
 	}

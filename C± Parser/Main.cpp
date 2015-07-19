@@ -13,7 +13,7 @@ int main()
 
 	for(unsigned int i = 0; i < (*tokens).size(); i ++)
 	{
-		std::cout << (*tokens)[i]->getName() << " - " << (*tokens)[i]->getType()->name << "\r\n";
+		std::printf("%-20s|%16s\r\n", (*tokens)[i]->getName().c_str(), (*tokens)[i]->getType()->name->c_str());
 	}
 
 	std::vector<MetaToken *> * metaTokens = (new MetaTokenConversionFactory())->convertTokensToMetaTokens(tokens);

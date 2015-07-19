@@ -1,6 +1,6 @@
 #include "Parser.h"
 
-Parser::Parser(void)
+Parser::Parser()
 {
 }
 
@@ -9,7 +9,7 @@ void Parser::addMetaTokenType(MetaTokenType * type)
 	this->types->push_back(type);
 }
 
-std::vector<MetaToken *> * convertTokensToMetaTokens(std::vector<Token *> * tokens)
+std::vector<MetaToken *> * Parser::parse(std::vector<MetaToken *> * tokens)
 {
-	return NULL; //TODO: implement
+	return NULL;
 }

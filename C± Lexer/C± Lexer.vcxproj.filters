@@ -30,6 +30,9 @@
     <ClInclude Include="CPMLexerFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TokenNames.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TokenType.cpp">

@@ -57,7 +57,7 @@ class ExtendedObj : MyObject
 		return arr;
 	}
 	
-	function void doNothing()
+	function void doNothing(int a, boolean b)
 	{
 		return ;
 	}

@@ -1,205 +1,261 @@
 #include "CPMLexerFactory.h"
+#include "TokenNames.h"
 
 Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 {
 	Lexer * lexer = new Lexer((char*)file.c_str());
 
-	lexer->addTokenType(new TokenType("OpenParan", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_OPEN_PARAN, [](std::string * source)
 	{ 
 		return checkSimpleStartingString(source, "(");
 	}));
 
-	lexer->addTokenType(new TokenType("CloseParan", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_CLOSE_PARAN, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, ")");
 	}));
 
-	lexer->addTokenType(new TokenType("OpenBracket", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_OPEN_BRACE, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "[");
 	}));
 
-	lexer->addTokenType(new TokenType("CloseBracket", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_CLOSE_BRACE, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "]");
 	}));
 
-	lexer->addTokenType(new TokenType("OpenBrace", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_OPEN_BRACKET, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "{");
 	}));
 
-	lexer->addTokenType(new TokenType("CloseBrace", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_CLOSE_BRACKET, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "}");
 	}));
 
-	lexer->addTokenType(new TokenType("class", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_CLASS, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "class");
 	}));
 
-	lexer->addTokenType(new TokenType("function", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_FUNCTION, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "function");
 	}));
 
-	lexer->addTokenType(new TokenType("for", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_FOR, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "for");
 	}));
 
-	lexer->addTokenType(new TokenType("while", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_WHILE, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "while");
 	}));
 
-	lexer->addTokenType(new TokenType("new", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_NEW, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "new");
 	}));
 
-	lexer->addTokenType(new TokenType("if", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_IF, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "if");
 	}));
 
-	lexer->addTokenType(new TokenType("else", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_ELSE, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "else");
 	}));
 
-	lexer->addTokenType(new TokenType("in", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_IN, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "in");
 	}));
 
-	lexer->addTokenType(new TokenType("null", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_NULL, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "null");
 	}));
 
-	lexer->addTokenType(new TokenType("super", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_SUPER, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "super");
 	}));
 
-	lexer->addTokenType(new TokenType("this", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_THIS, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "this");
 	}));
 
-	lexer->addTokenType(new TokenType("return", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_RETURN, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "return");
 	}));
 
-	lexer->addTokenType(new TokenType("import", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_IMPORT, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "import");
 	}));
 
-	lexer->addTokenType(new TokenType("partial", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_PARTIAL, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "partial");
 	}));
 
-	lexer->addTokenType(new TokenType("Colon", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_COLON, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, ":");
 	}));
 
-	lexer->addTokenType(new TokenType("SemiColon", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_COMMA, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, ",");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_SEMI_COLON, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, ";");
 	}));
 
-	lexer->addTokenType(new TokenType("PrimitiveType", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_INT_TYPE, [](std::string * source)
 	{
-		std::string * intString = checkSimpleStartingString(source, "int");
-		std::string * doubleString = checkSimpleStartingString(source, "double");
-		std::string * charString = checkSimpleStartingString(source, "char");
-		std::string * booleanString = checkSimpleStartingString(source, "boolean");
-		std::string * voidString = checkSimpleStartingString(source, "void");
-
-		std::string * returnString = NULL;
-
-		if(intString != NULL) returnString = intString;
-		else if(doubleString != NULL) returnString = doubleString;
-		else if(charString != NULL) returnString = charString;
-		else if(booleanString != NULL) returnString = booleanString;
-		else if(voidString != NULL) returnString = voidString;
-
-		return returnString;
+		return checkSimpleStartingString(source, "int");
 	}));
 
-	lexer->addTokenType(new TokenType("PreUnaryOperator", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_DOUBLE_TYPE, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "double");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_CHAR_TYPE, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "char");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_BOOLEAN_TYPE, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "boolean");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_VOID_TYPE, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "void");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_BANG, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "!");
 	}));
 
-	lexer->addTokenType(new TokenType("PostUnaryOperator", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_PLUSPLUS, [](std::string * source)
 	{
-		std::string * plusPlusString = checkSimpleStartingString(source, "++");
-		std::string * minusMinusString = checkSimpleStartingString(source, "--");
-
-		std::string * returnString = NULL;
-
-		if(plusPlusString != NULL) returnString = plusPlusString;
-		else if(minusMinusString != NULL) returnString = minusMinusString;
-
-		return returnString;
+		return checkSimpleStartingString(source, "++");
 	}));
 
-	lexer->addTokenType(new TokenType("BinaryOperator", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_MINUSMINUS, [](std::string * source)
 	{
-		std::string * plusString = checkSimpleStartingString(source, "+");
-		std::string * minusString = checkSimpleStartingString(source, "-");
-		std::string * divisionString = checkSimpleStartingString(source, "/");
-		std::string * modulusString = checkSimpleStartingString(source, "%");
-		std::string * powerString = checkSimpleStartingString(source, "**");
-		std::string * multiplicationString = checkSimpleStartingString(source, "*");
-		std::string * equalsString = checkSimpleStartingString(source, "==");
-		std::string * greaterThanOrEqualsString = checkSimpleStartingString(source, ">=");
-		std::string * greaterThan = checkSimpleStartingString(source, ">");
-		std::string * lessThanOrEqualsString = checkSimpleStartingString(source, "<=");
-		std::string * lessThanString = checkSimpleStartingString(source, "<");
-		std::string * notEqualsString = checkSimpleStartingString(source, "!=");
-		std::string * andString = checkSimpleStartingString(source, "&&");
-		std::string * orString = checkSimpleStartingString(source, "||");
-		std::string * instanceofString = checkSimpleStartingString(source, "instanceof");
-		std::string * xorString = checkSimpleStartingString(source, "^");
-		std::string * dotString = checkSimpleStartingString(source, ".");
-
-		std::string * returnString = NULL;
-
-		if(plusString != NULL) returnString = plusString;
-		else if(minusString != NULL) returnString = minusString;
-		else if(divisionString != NULL) returnString = divisionString;
-		else if(modulusString != NULL) returnString = modulusString;
-		else if(powerString != NULL) returnString = powerString;
-		else if(multiplicationString != NULL) returnString = multiplicationString;
-		else if(equalsString != NULL) returnString = equalsString;
-		else if(greaterThanOrEqualsString != NULL) returnString = greaterThanOrEqualsString;
-		else if(greaterThan != NULL) returnString = greaterThan;
-		else if(lessThanOrEqualsString != NULL) returnString = lessThanOrEqualsString;
-		else if(lessThanString != NULL) returnString = lessThanString;
-		else if(notEqualsString != NULL) returnString = notEqualsString;
-		else if(andString != NULL) returnString = andString;
-		else if(orString != NULL) returnString = orString;
-		else if(instanceofString != NULL) returnString = instanceofString;
-		else if(xorString != NULL) returnString = xorString;
-		else if(dotString != NULL) returnString = dotString;
-
-		return returnString;
+		return checkSimpleStartingString(source, "--");
 	}));
 
-	lexer->addTokenType(new TokenType("AssignmentOperator", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_PLUS, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "+");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_MINUS, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "-");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_MULTIPLY, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "*");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_DIVIDE, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "/");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_MOD, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "%");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_POWER, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "**");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_IS_EQUALS, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "==");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_IS_GREATER_THAN_OR_EQUALS, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, ">=");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_IS_GREATER_THAN, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, ">");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_IS_LESS_THAN_OR_EQUALS, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "<=");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_IS_LESS_THAN, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "<");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_IS_NOT_EQUALS, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "!=");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_AND, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "&&");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_OR, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "||");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_INSTANCEOF, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "instanceof");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_XOR, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "^");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_ACCESS_OPERATOR, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, ".");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_ASSIGNMENT_OPERATOR, [](std::string * source)
 	{
 		return checkSimpleStartingString(source, "=");
 	}));
 
-	lexer->addTokenType(new TokenType("BooleanLiteral", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_QUESTION, [](std::string * source)
+	{
+		return checkSimpleStartingString(source, "?");
+	}));
+
+	lexer->addTokenType(new TokenType(TOKEN_BOOLEAN_LITERAL, [](std::string * source)
 	{
 		std::string * trueString = checkSimpleStartingString(source, "true");
 		std::string * falseString = checkSimpleStartingString(source, "false");
@@ -213,7 +269,7 @@ Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 
 	}));
 
-	lexer->addTokenType(new TokenType("StringLiteral", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_STRING_LITERAL, [](std::string * source)
 	{
 		std::string * returnString = NULL;
 
@@ -250,7 +306,7 @@ Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 		return returnString;
 	}));
 
-	lexer->addTokenType(new TokenType("IntLiteral", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_INT_LITERAL, [](std::string * source)
 	{
 		std::string * returnString = NULL;
 		unsigned int length = 0;
@@ -268,7 +324,7 @@ Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 		return returnString;
 	}));
 
-	lexer->addTokenType(new TokenType("CharLiteral", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_CHAR_LITERAL, [](std::string * source)
 	{
 		std::string * returnString = NULL;
 
@@ -307,7 +363,7 @@ Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 		return returnString;
 	}));
 
-	lexer->addTokenType(new TokenType("ID", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_ID, [](std::string * source)
 	{
 		std::string * returnString = NULL;
 		unsigned int length = 0;
@@ -325,7 +381,7 @@ Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 		return returnString;
 	}));
 
-	lexer->addTokenType(new TokenType("DoubleLiteral", [](std::string * source)
+	lexer->addTokenType(new TokenType(TOKEN_DOUBLE_LITERAL, [](std::string * source)
 	{
 		std::string * returnString = NULL;
 		unsigned int length = 0;

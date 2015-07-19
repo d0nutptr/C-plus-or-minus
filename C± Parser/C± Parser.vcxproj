@@ -82,12 +82,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CPMParserFactory.h" />
     <ClInclude Include="MetaToken.h" />
     <ClInclude Include="MetaTokenConversionFactory.h" />
     <ClInclude Include="MetaTokenType.h" />
     <ClInclude Include="Parser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CPMParserFactory.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MetaToken.cpp" />
     <ClCompile Include="MetaTokenConversionFactory.cpp" />
