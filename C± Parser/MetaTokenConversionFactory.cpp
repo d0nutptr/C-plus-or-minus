@@ -145,19 +145,104 @@ MetaTokenConversionFactory::MetaTokenConversionFactory(void)
 		return checkIfTypeNameMatches(token, TOKEN_VOID_TYPE);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_PREUNARY_OPERATOR, [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_BANG, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, TOKEN_PREUNARY_OPERATOR);
+		return checkIfTypeNameMatches(token, TOKEN_BANG);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_POSTUNARY_OPERATOR, [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_PLUSPLUS, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, TOKEN_POSTUNARY_OPERATOR);
+		return checkIfTypeNameMatches(token, TOKEN_PLUSPLUS);
 	}));
 
-	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_BINARY_OPERATOR, [](Token * token)
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_MINUSMINUS, [](Token * token)
 	{
-		return checkIfTypeNameMatches(token, TOKEN_BINARY_OPERATOR);
+		return checkIfTypeNameMatches(token, TOKEN_MINUSMINUS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_PLUS, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_PLUS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_MINUS, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_MINUS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_MULTIPLY, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_MULTIPLY);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_DIVIDE, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_DIVIDE);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_MOD, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_MOD);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_POWER, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_POWER);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IS_EQUALS, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_IS_EQUALS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IS_GREATER_THAN_OR_EQUALS, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_IS_GREATER_THAN_OR_EQUALS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IS_GREATER_THAN, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_IS_GREATER_THAN);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IS_LESS_THAN_OR_EQUALS, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_IS_LESS_THAN_OR_EQUALS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IS_LESS_THAN, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_IS_LESS_THAN);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_IS_NOT_EQUALS, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_IS_NOT_EQUALS);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_AND, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_AND);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_OR, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_OR);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_INSTANCEOF, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_INSTANCEOF);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_XOR, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_XOR);
+	}));
+
+	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_ACCESS_OPERATOR, [](Token * token)
+	{
+		return checkIfTypeNameMatches(token, TOKEN_ACCESS_OPERATOR);
 	}));
 
 	this->metaTokenTypes->push_back(new MetaTokenType(TOKEN_ASSIGNMENT_OPERATOR, [](Token * token)
