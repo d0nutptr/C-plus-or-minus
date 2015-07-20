@@ -1,6 +1,6 @@
 #include "MetaTokenType.h"
 
-MetaTokenType::MetaTokenType(const std::string * name, std::vector<MetaToken *> * (* containsMetaToken)(std::vector<MetaToken *> *))
+MetaTokenType::MetaTokenType(const std::string * name, MetaToken * (* containsMetaToken)(std::vector<MetaToken *> *, long, long))
 {
 	this->name = name;
 	this->containsMetaToken = containsMetaToken;
@@ -12,4 +12,11 @@ MetaTokenType::MetaTokenType(const std::string * name, Token * (* tryToTranslate
 	this->name = name;
 	this->containsMetaToken = NULL;
 	this->tryToTranslateTokenToMetaToken = tryToTranslateTokenToMetaToken;
+}
+
+MetaTokenType::MetaTokenType(const std::string * name)
+{
+	this->name = name;
+	this->containsMetaToken = NULL;
+	this->tryToTranslateTokenToMetaToken = NULL;
 }
