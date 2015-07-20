@@ -43,9 +43,9 @@ const string * const TOKEN_CLOSE_BRACKET = new string("close_bracket");
 
 //assignment statement
 const string * const TOKEN_ASSIGNMENT_OPERATOR = new string("assignment_operator");
+const string * const TOKEN_VALUE = new string("value");
 
 //expression
-const string * const TOKEN_VALUE = new string("value");
 const string * const TOKEN_INSTANTIATION = new string("instantiation");
 const string * const TOKEN_OPEN_PARAN = new string("open_paran");
 const string * const TOKEN_CLOSE_PARAN = new string("close_paran");
@@ -54,13 +54,13 @@ const string * const TOKEN_POSTUNARY_OPERATOR = new string("postunary_operator")
 const string * const TOKEN_BINARY_OPERATOR = new string("binary_operator");
 const string * const TOKEN_QUESTION = new string("question_mark");
 const string * const TOKEN_COLON = new string("colon");
+const string * const TOKEN_FUNCTION_CALL = new string("function_call");
 
 //value
 const string * const TOKEN_NULL = new string("null");
 const string * const TOKEN_SUPER = new string("super");
 const string * const TOKEN_THIS = new string("this");
 const string * const TOKEN_PRIMITIVE_LITERAL = new string("primitive_literal");
-const string * const TOKEN_FUNCTION_CALL = new string("function_call");
 
 //primitive literal
 const string * const TOKEN_INT_LITERAL = new string("int_literal");
