@@ -944,5 +944,584 @@ Parser * CPMParserFactory::generateCPMParser(std::vector<MetaToken *> * metaToke
 		return result;
 	}));
 
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CONDITIONAL, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+
+		if(tokens->size() > start + length)
+		{
+			if(length == 7)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				MetaToken * tokenSix = tokens->at(start + 5);
+				MetaToken * tokenSeven = tokens->at(start + 6);
+
+				if(tokenOne->getType()->name == TOKEN_IF
+					&& tokenTwo->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenThree->getType()->name == TOKEN_VALUE
+					&& tokenFour->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenFive->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenSix->getType()->name == TOKEN_FUNCTION_STATEMENTS
+					&& tokenSeven->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+					resultTokens->push_back(tokenSix);
+					resultTokens->push_back(tokenSeven);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CONDITIONAL), resultTokens);
+				}
+			}
+			else if(length == 5)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				
+
+				if(tokenOne->getType()->name == TOKEN_IF
+					&& tokenTwo->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenThree->getType()->name == TOKEN_VALUE
+					&& tokenFour->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenFive->getType()->name == TOKEN_FUNCTION_STATEMENTS)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CONDITIONAL), resultTokens);
+				}
+			}
+			else if(length == 2)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+
+				if(tokenOne->getType()->name == TOKEN_ELSE
+					&& tokenTwo->getType()->name == TOKEN_FUNCTION_STATEMENT)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					
+					result = new MetaToken(new MetaTokenType(TOKEN_CONDITIONAL), resultTokens);
+				}
+
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CLASS_DEFINITION, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+
+		if(tokens->size() > start + length)
+		{
+			if(length == 3)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+
+				if(tokenOne->getType()->name == TOKEN_CLASS
+					&& tokenTwo->getType()->name == TOKEN_ID
+					&& tokenThree->getType()->name == TOKEN_CLASS_BLOCK)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_DEFINITION), resultTokens);
+				}
+			}
+			else if(length == 4)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+
+				if(tokenOne->getType()->name == TOKEN_CLASS
+					&& tokenTwo->getType()->name == TOKEN_PARTIAL
+					&& tokenThree->getType()->name == TOKEN_ID
+					&& tokenFour->getType()->name == TOKEN_CLASS_BLOCK)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_DEFINITION), resultTokens);
+				}
+			}
+			else if(length == 5)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+
+				if(tokenOne->getType()->name == TOKEN_CLASS
+					&& tokenTwo->getType()->name == TOKEN_ID
+					&& tokenThree->getType()->name == TOKEN_COLON
+					&& tokenFour->getType()->name == TOKEN_ID
+					&& tokenFive->getType()->name == TOKEN_CLASS_BLOCK)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_DEFINITION), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CLASS_BLOCK, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length == 3)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+
+				if(tokenOne->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenTwo->getType()->name == TOKEN_CLASS_STATEMENTS
+					&& tokenThree->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_BLOCK), resultTokens);
+				}
+			}
+			else if(length == 2)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+
+				if(tokenOne->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenTwo->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_BLOCK), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CLASS_STATEMENTS, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length > 0)
+			{
+				bool valid = true;
+				std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+
+				for(int i = 0; i < length; i ++)
+				{
+					if(tokens->at(i)->getType()->name != TOKEN_CLASS_STATEMENT_OR_CONSTRUCTOR)
+					{
+						valid = false;
+						break;
+					}
+
+					resultTokens->push_back(tokens->at(i));
+				}
+
+				if(valid)
+				{
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_STATEMENTS), resultTokens);
+				}
+			}
+		}
+		
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CLASS_STATEMENT_OR_CONSTRUCTOR, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length == 1)
+			{
+				MetaToken * token = tokens->at(start);
+
+				if(token->getType()->name == TOKEN_CLASS_STATEMENT
+					|| token->getType()->name == TOKEN_CONSTRUCTOR)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(token);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_STATEMENT_OR_CONSTRUCTOR), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CLASS_STATEMENT, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length == 1)
+			{
+				MetaToken * token = tokens->at(start);
+
+				if(token->getType()->name == TOKEN_FUNCTION_DEFINITION)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(token);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_STATEMENT), resultTokens);
+				}
+			}
+			else if(length == 2)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+
+				if((tokenOne->getType()->name == TOKEN_VARIABLE_DECLARATION
+					|| tokenOne->getType()->name == TOKEN_ASSIGNMENT_STATEMENT)
+					&& tokenTwo->getType()->name == TOKEN_SEMI_COLON)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CLASS_STATEMENT), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_FUNCTION_DEFINITION, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length == 7)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				MetaToken * tokenSix = tokens->at(start + 5);
+				MetaToken * tokenSeven = tokens->at(start + 6);
+
+				if(tokenOne->getType()->name == TOKEN_FUNCTION
+					&& tokenTwo->getType()->name == TOKEN_TYPE
+					&& tokenThree->getType()->name == TOKEN_ID
+					&& tokenFour->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenFive->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenSix->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenSeven->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+					resultTokens->push_back(tokenSix);
+					resultTokens->push_back(tokenSeven);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_FUNCTION_DEFINITION), resultTokens);
+				}
+			}
+			else if(length == 8)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				MetaToken * tokenSix = tokens->at(start + 5);
+				MetaToken * tokenSeven = tokens->at(start + 6);
+				MetaToken * tokenEight = tokens->at(start + 7);
+
+				if((tokenOne->getType()->name == TOKEN_FUNCTION
+					&& tokenTwo->getType()->name == TOKEN_TYPE
+					&& tokenThree->getType()->name == TOKEN_ID
+					&& tokenFour->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenFive->getType()->name == TOKEN_PARAMETER_DEFINITION_LIST
+					&& tokenSix->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenSeven->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenEight->getType()->name == TOKEN_CLOSE_BRACE)
+					||
+					(tokenOne->getType()->name == TOKEN_FUNCTION
+					&& tokenTwo->getType()->name == TOKEN_TYPE
+					&& tokenThree->getType()->name == TOKEN_ID
+					&& tokenFour->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenFive->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenSix->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenSeven->getType()->name == TOKEN_FUNCTION_STATEMENTS
+					&& tokenEight->getType()->name == TOKEN_CLOSE_BRACE))
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+					resultTokens->push_back(tokenSix);
+					resultTokens->push_back(tokenSeven);
+					resultTokens->push_back(tokenEight);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_FUNCTION_DEFINITION), resultTokens);
+				}
+			}
+			else if(length == 9)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				MetaToken * tokenSix = tokens->at(start + 5);
+				MetaToken * tokenSeven = tokens->at(start + 6);
+				MetaToken * tokenEight = tokens->at(start + 7);
+				MetaToken * tokenNine = tokens->at(start + 8);
+
+				if(tokenOne->getType()->name == TOKEN_FUNCTION
+					&& tokenTwo->getType()->name == TOKEN_TYPE
+					&& tokenThree->getType()->name == TOKEN_ID
+					&& tokenFour->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenFive->getType()->name == TOKEN_PARAMETER_DEFINITION_LIST
+					&& tokenSix->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenSeven->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenEight->getType()->name == TOKEN_FUNCTION_STATEMENTS
+					&& tokenNine->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+					resultTokens->push_back(tokenSix);
+					resultTokens->push_back(tokenSeven);
+					resultTokens->push_back(tokenEight);
+					resultTokens->push_back(tokenNine);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_FUNCTION_DEFINITION), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_PARAMETER_DEFINITION_LIST, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length % 2 == 1)
+			{
+				std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+				bool valid = true;
+
+				for(int i = 0; i < length; i ++)
+				{
+					MetaToken * token = tokens->at(start + i);
+
+					if((i % 2 == 0 && token->getType()->name == TOKEN_PARAMETER_DEFINITION)
+						|| (i % 2 == 1 && token->getType()->name == TOKEN_COMMA))
+					{
+						resultTokens->push_back(token);
+					}
+					else
+					{
+						valid = false;
+						break;
+					}
+				}
+
+				if(valid)
+				{
+					result = new MetaToken(new MetaTokenType(TOKEN_PARAMETER_DEFINITION_LIST), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_PARAMETER_DEFINITION, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length == 2)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+
+				if(tokenOne->getType()->name == TOKEN_TYPE
+					&& tokenTwo->getType()->name == TOKEN_ID)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_PARAMETER_DEFINITION), resultTokens);
+				}
+			}
+		}
+
+		return result;
+
+	}));
+
+	parser->addMetaTokenType(new MetaTokenType(TOKEN_CONSTRUCTOR, [](std::vector<MetaToken *> * tokens, long start, long length)
+	{
+		MetaToken * result = NULL;
+		
+		if(tokens->size() > start + length)
+		{
+			if(length == 5)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+
+				if(tokenOne->getType()->name == TOKEN_ID
+					&& tokenTwo->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenThree->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenFour->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenFive->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CONSTRUCTOR), resultTokens);
+				}
+			}
+			else if(length == 6)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				MetaToken * tokenSix = tokens->at(start + 5);
+
+				if((tokenOne->getType()->name == TOKEN_ID
+					&& tokenTwo->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenThree->getType()->name == TOKEN_PARAMETER_DEFINITION_LIST
+					&& tokenFour->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenFive->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenSix->getType()->name == TOKEN_CLOSE_BRACE)
+					||
+					(tokenOne->getType()->name == TOKEN_ID
+					&& tokenTwo->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenThree->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenFour->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenFive->getType()->name == TOKEN_FUNCTION_STATEMENTS
+					&& tokenSix->getType()->name == TOKEN_CLOSE_BRACE))
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+					resultTokens->push_back(tokenSix);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CONSTRUCTOR), resultTokens);
+				}
+			}
+			else if(length == 7)
+			{
+				MetaToken * tokenOne = tokens->at(start);
+				MetaToken * tokenTwo = tokens->at(start + 1);
+				MetaToken * tokenThree = tokens->at(start + 2);
+				MetaToken * tokenFour = tokens->at(start + 3);
+				MetaToken * tokenFive = tokens->at(start + 4);
+				MetaToken * tokenSix = tokens->at(start + 5);
+				MetaToken * tokenSeven = tokens->at(start + 6);
+				
+				if(tokenOne->getType()->name == TOKEN_ID
+					&& tokenTwo->getType()->name == TOKEN_OPEN_PARAN
+					&& tokenThree->getType()->name == TOKEN_PARAMETER_DEFINITION_LIST
+					&& tokenFour->getType()->name == TOKEN_CLOSE_PARAN
+					&& tokenFive->getType()->name == TOKEN_OPEN_BRACE
+					&& tokenSix->getType()->name == TOKEN_FUNCTION_STATEMENTS
+					&& tokenSeven->getType()->name == TOKEN_CLOSE_BRACE)
+				{
+					std::vector<MetaToken *> * resultTokens = new std::vector<MetaToken *>();
+					resultTokens->push_back(tokenOne);
+					resultTokens->push_back(tokenTwo);
+					resultTokens->push_back(tokenThree);
+					resultTokens->push_back(tokenFour);
+					resultTokens->push_back(tokenFive);
+					resultTokens->push_back(tokenSix);
+					resultTokens->push_back(tokenSeven);
+
+					result = new MetaToken(new MetaTokenType(TOKEN_CONSTRUCTOR), resultTokens);
+				}
+			}
+		}
+
+		return result;
+	}));
+
 	return parser;
 }
