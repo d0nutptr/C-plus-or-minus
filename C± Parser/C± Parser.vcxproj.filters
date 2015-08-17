@@ -16,6 +16,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="bnfrules.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MetaToken.h">
@@ -31,6 +34,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CPMParserFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RuleParseInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RuleParseInstanceSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,6 +66,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CPMParserFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RuleParseInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RuleParseInstanceSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

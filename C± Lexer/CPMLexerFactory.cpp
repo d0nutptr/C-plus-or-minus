@@ -17,22 +17,22 @@ Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 
 	lexer->addTokenType(new TokenType(TOKEN_OPEN_BRACE, [](std::string * source)
 	{
-		return checkSimpleStartingString(source, "[");
+		return checkSimpleStartingString(source, "{");
 	}));
 
 	lexer->addTokenType(new TokenType(TOKEN_CLOSE_BRACE, [](std::string * source)
 	{
-		return checkSimpleStartingString(source, "]");
+		return checkSimpleStartingString(source, "}");
 	}));
 
 	lexer->addTokenType(new TokenType(TOKEN_OPEN_BRACKET, [](std::string * source)
 	{
-		return checkSimpleStartingString(source, "{");
+		return checkSimpleStartingString(source, "[");
 	}));
 
 	lexer->addTokenType(new TokenType(TOKEN_CLOSE_BRACKET, [](std::string * source)
 	{
-		return checkSimpleStartingString(source, "}");
+		return checkSimpleStartingString(source, "]");
 	}));
 
 	lexer->addTokenType(new TokenType(TOKEN_CLASS, [](std::string * source)

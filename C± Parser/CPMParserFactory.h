@@ -4,6 +4,10 @@
 class CPMParserFactory
 {
 public:
-	static Parser * generateCPMParser(std::vector<MetaToken *> * metaTokens);
+	static Parser * generateCPMParser();
+private:
+	static ParseState * generateParseState(std::vector<RuleParseInstance *> * baseStates, RuleParseInstanceSet * ruleSet);
+	static void beginAutomatonGeneration(ParseState * state, Parser * parser);
+	CPMParserFactory(void);
 };
 

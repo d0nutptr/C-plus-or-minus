@@ -2,12 +2,13 @@
 #include "CPMLexerFactory.h"
 #include "TokenType.h"
 #include "MetaTokenConversionFactory.h"
+#include "CPMParserFactory.h"
 #include <iomanip>
 #include <iostream>
 
 int main()
 {
-	Lexer * lexer = CPMLexerFactory::generateCPMLexer("ExampleCPlusOrMinusFile.txt");
+	Lexer * lexer = CPMLexerFactory::generateCPMLexer("import_test.txt");
 	std::vector<Token *> * tokens = new std::vector<Token *>();
 	lexer->beginLexing(tokens);
 
@@ -17,6 +18,9 @@ int main()
 	}
 
 	std::vector<MetaToken *> * metaTokens = (new MetaTokenConversionFactory())->convertTokensToMetaTokens(tokens);
+	Parser * parser = CPMParserFactory::generateCPMParser();
+
+	MetaToken * result = parser->parse(metaTokens);
 
 	std::string test;
 	std::cin >> test;
