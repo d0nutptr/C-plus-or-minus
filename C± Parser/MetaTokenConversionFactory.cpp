@@ -288,7 +288,7 @@ Token * MetaTokenConversionFactory::checkIfTypeNameMatches(Token * token, const 
 {
 	Token * result = NULL;
 
-	if(token->getType()->name == type)
+	if(*token->getType()->name == *type)
 	{
 		result = token;
 	}

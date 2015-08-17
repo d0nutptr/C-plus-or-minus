@@ -79,22 +79,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="bnfrules.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CPMParserFactory.h" />
+    <ClInclude Include="ParseState.h" />
+    <ClInclude Include="Rule.h" />
+    <ClInclude Include="RuleParseInstance.h" />
+    <ClInclude Include="RuleParseInstanceSet.h" />
     <ClInclude Include="MetaToken.h" />
     <ClInclude Include="MetaTokenConversionFactory.h" />
     <ClInclude Include="MetaTokenType.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="CPMParserFactory.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CPMParserFactory.cpp" />
+    <ClCompile Include="ParseState.cpp" />
+    <ClCompile Include="Rule.cpp" />
+    <ClCompile Include="RuleParseInstance.cpp" />
+    <ClCompile Include="RuleParseInstanceSet.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MetaToken.cpp" />
     <ClCompile Include="MetaTokenConversionFactory.cpp" />
     <ClCompile Include="MetaTokenType.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="CPMParserFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C± Lexer\C± Lexer.vcxproj">

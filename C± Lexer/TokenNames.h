@@ -43,9 +43,9 @@ const string * const TOKEN_CLOSE_BRACKET = new string("close_bracket");
 
 //assignment statement
 const string * const TOKEN_ASSIGNMENT_OPERATOR = new string("assignment_operator");
+const string * const TOKEN_VALUE = new string("value");
 
 //expression
-const string * const TOKEN_VALUE = new string("value");
 const string * const TOKEN_INSTANTIATION = new string("instantiation");
 const string * const TOKEN_OPEN_PARAN = new string("open_paran");
 const string * const TOKEN_CLOSE_PARAN = new string("close_paran");
@@ -54,22 +54,19 @@ const string * const TOKEN_POSTUNARY_OPERATOR = new string("postunary_operator")
 const string * const TOKEN_BINARY_OPERATOR = new string("binary_operator");
 const string * const TOKEN_QUESTION = new string("question_mark");
 const string * const TOKEN_COLON = new string("colon");
+const string * const TOKEN_FUNCTION_CALL = new string("function_call");
 
 //value
 const string * const TOKEN_NULL = new string("null");
 const string * const TOKEN_SUPER = new string("super");
 const string * const TOKEN_THIS = new string("this");
 const string * const TOKEN_PRIMITIVE_LITERAL = new string("primitive_literal");
-const string * const TOKEN_FUNCTION_CALL = new string("function_call");
 
 //primitive literal
 const string * const TOKEN_INT_LITERAL = new string("int_literal");
 const string * const TOKEN_DOUBLE_LITERAL = new string("double_literal");
 const string * const TOKEN_CHAR_LITERAL = new string("char_literal");
 const string * const TOKEN_BOOLEAN_LITERAL = new string("boolean_literal");
-
-//function call
-const string * const TOKEN_PARAMETER_LIST_OPT = new string("param_list_opt");
 
 //parameter list opt
 const string * const TOKEN_PARAMETER_LIST = new string("param_list");
@@ -116,8 +113,6 @@ const string * const TOKEN_WHILE_LOOP = new string("while_loop");
 
 //for loop
 const string * const TOKEN_FOR = new string("for");
-const string * const TOKEN_ASSIGNMENT_STATEMENT_OPT = new string("assignment_statement_opt");
-const string * const TOKEN_EXPRESSION_OPT = new string("expression_opt");
 const string * const TOKEN_OPEN_BRACE = new string("open_brace");
 const string * const TOKEN_FUNCTION_STATEMENTS = new string("function_statements");
 const string * const TOKEN_CLOSE_BRACE = new string("close_brace");
@@ -147,13 +142,9 @@ const string * const TOKEN_CONSTRUCTOR = new string("constructor");
 //class statement
 const string * const TOKEN_FUNCTION_DEFINITION = new string("function_definition");
 const string * const TOKEN_FUNCTION = new string("function");
-const string * const TOKEN_PARAMETER_DEFINITION_LIST_OPT = new string("parameter_definition_list_opt");
 
 //parameter definition list opt
 const string * const TOKEN_PARAMETER_DEFINITION_LIST = new string("parameter_definition_list");
 
 //parameter definition list
 const string * const TOKEN_PARAMETER_DEFINITION = new string("parameter_definition");
-
-//Constructor
-const string * const TOKEN_FUNCTION_STATEMENTS_OPT = new string("function_statements_opt");
