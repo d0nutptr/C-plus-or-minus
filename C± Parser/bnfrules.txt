@@ -18,6 +18,14 @@ function_statement
 	conditional
 variable_declaration
 	type id
+expression
+	function_call
+	instantiation
+	open_paran value close_paran
+	preunary_operator value
+	id postunary_operator
+	value binary_operator value
+	value question_mark value colon value
 type
 	primitive_type
 	array_type
@@ -40,14 +48,6 @@ value
 	expression
 	primitive_literal
 	id
-expression
-	function_call
-	instantiation
-	open_paran value close_paran
-	preunary_operator value
-	value postunary_operator
-	value binary_operator value
-	value question_mark value colon value
 function_call
 	id open_paran param_list close_paran
 	id open_paran close_paran
@@ -96,12 +96,12 @@ loop
 	for_loop
 	while_loop
 for_loop
-	for open_paran assignment_statement semi_colon value semi_colon value close_paran open_brace function_statements close_brace
-	for open_paran assignment_statement semi_colon value semi_colon value close_paran open_brace close_brace
+	for open_paran assignment_statement semi_colon value semi_colon expression close_paran open_brace function_statements close_brace
+	for open_paran assignment_statement semi_colon value semi_colon expression close_paran open_brace close_brace
 	for open_paran assignment_statement semi_colon value semi_colon close_paran open_brace function_statements close_brace
 	for open_paran assignment_statement semi_colon value semi_colon close_paran open_brace close_brace
-	for open_paran semi_colon value semi_colon value close_paran open_brace function_statements close_brace
-	for open_paran semi_colon value semi_colon value close_paran open_brace close_brace
+	for open_paran semi_colon value semi_colon expression close_paran open_brace function_statements close_brace
+	for open_paran semi_colon value semi_colon expression close_paran open_brace close_brace
 	for open_paran semi_colon value semi_colon close_paran open_brace function_statements close_brace
 	for open_paran semi_colon value semi_colon close_paran open_brace close_brace
 	for open_paran variable_declaration in value close_paran open_brace function_statements close_brace
