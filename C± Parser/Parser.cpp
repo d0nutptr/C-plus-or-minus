@@ -1,5 +1,6 @@
 #include "Parser.h"
 #include "TokenNames.h"
+#include "ParseResult.h"
 #include <iostream>
 
 Parser::Parser()
@@ -14,9 +15,9 @@ void Parser::addMetaTokenType(MetaTokenType * type)
 	this->types->push_back(type);
 }
 
-MetaToken * Parser::parse(std::vector<MetaToken *> * tokens)
+ParseResult * Parser::parse(std::vector<MetaToken *> * tokens)
 {
-	MetaToken * final_result = NULL;
+	ParseResult * result = NULL;
 
 	std::vector<MetaToken *> * operatingStack = new std::vector<MetaToken *>();
 	std::vector<ParseState *> * stateStack = new std::vector<ParseState *>();
@@ -35,12 +36,19 @@ MetaToken * Parser::parse(std::vector<MetaToken *> * tokens)
 		MetaToken * nextToken = tokens->size() > 0 ? tokens->at(0) : NULL;
 
 		//try to get a rule that can compress this down
-		Rule * rule = state->getRuleThatMatches(operatingStack);
+		Rule * rule = state->getRuleThatMatches(operatingStack, nextToken != NULL ? nextToken->getType()->name : NULL);
 
 		if(rule == NULL)
 		{
 			//consume a character
 			std::string * nextTokenString = new std::string(*nextToken->getType()->name);
+
+			if(state->nextStates->find(*nextTokenString) == state->nextStates->end())
+			{
+				result = new ParseResult(operatingStack);
+				break;
+			}
+
 			ParseState * newState = state->nextStates->at(*nextTokenString);
 
 			stateStack->push_back(newState);
@@ -66,7 +74,6 @@ MetaToken * Parser::parse(std::vector<MetaToken *> * tokens)
 				//remove the old element
 				operatingStack->pop_back();
 			}
-
 			
 			MetaToken * newToken = new MetaToken(newType, newTokenContents);
 
@@ -75,9 +82,12 @@ MetaToken * Parser::parse(std::vector<MetaToken *> * tokens)
 		}
 	}
 
-	final_result = operatingStack->at(0);
+	if(result == NULL)
+	{
+		result = new ParseResult(operatingStack->at(0));
+	}
 
-	return final_result;
+	return result;
 }
 
 bool Parser::areStatesEquivalent(ParseState * stateOne, ParseState * stateTwo)
@@ -85,20 +95,20 @@ bool Parser::areStatesEquivalent(ParseState * stateOne, ParseState * stateTwo)
 	bool result = false;
 
 	//same number of rules
-	if(stateOne->ruleSet->size() == stateTwo->ruleSet->size())
+	if(stateOne->ruleSet->rules->size() == stateTwo->ruleSet->rules->size())
 	{
 		result = true;
 
 		//contain the same exact rules
-		for(int i = 0; i < stateOne->ruleSet->size(); i ++)
+		for(int i = 0; i < stateOne->ruleSet->rules->size(); i ++)
 		{
-			RuleParseInstance * rule = stateOne->ruleSet->at(i);
+			RuleParseInstance * rule = stateOne->ruleSet->rules->at(i);
 
 			bool found = false;
 
-			for(int j = 0; j < stateTwo->ruleSet->size(); j ++)
+			for(int j = 0; j < stateTwo->ruleSet->rules->size(); j ++)
 			{
-				if(rule == stateTwo->ruleSet->at(j))
+				if(rule == stateTwo->ruleSet->rules->at(j))
 				{
 					found = true;
 					break;

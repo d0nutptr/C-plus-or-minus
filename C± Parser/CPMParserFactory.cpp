@@ -88,9 +88,9 @@ ParseState * CPMParserFactory::generateParseState(std::vector<RuleParseInstance 
 		state->addRule(baseStates->at(i));
 	}
 
-	for(int i = 0; i < state->ruleSet->size(); i ++)
+	for(int i = 0; i < state->ruleSet->rules->size(); i ++)
 	{
-		std::string * nextToken = state->ruleSet->at(i)->getNextToken();
+		std::string * nextToken = state->ruleSet->rules->at(i)->getNextToken();
 
 		//we might have nonterminals if this isn't null, otherwise NULL means end of token line. If it's terminal, it won't have a definition and won't get added :)
 		if(nextToken != NULL)
@@ -110,9 +110,9 @@ ParseState * CPMParserFactory::generateParseState(std::vector<RuleParseInstance 
 
 void CPMParserFactory::beginAutomatonGeneration(ParseState * state, Parser * parser)
 {
-	for(int i = 0; i < state->ruleSet->size(); i ++)
+	for(int i = 0; i < state->ruleSet->rules->size(); i ++)
 	{
-		std::string * tokenName = state->ruleSet->at(i)->getNextToken();
+		std::string * tokenName = state->ruleSet->rules->at(i)->getNextToken();
 
 		//we haven't used this tokenname already and it actually exists
 		if(tokenName != NULL && state->nextStates->count(*tokenName) == 0)
@@ -120,12 +120,12 @@ void CPMParserFactory::beginAutomatonGeneration(ParseState * state, Parser * par
 			std::vector<RuleParseInstance *> * currentMatchingRules = new std::vector<RuleParseInstance *>();
 
 			//add all rules that have tokenName as their nextToken
-			for(int j = 0; j < state->ruleSet->size(); j ++)
+			for(int j = 0; j < state->ruleSet->rules->size(); j ++)
 			{
-				if(state->ruleSet->at(j)->getNextToken() != NULL
-					&& *state->ruleSet->at(j)->getNextToken() == *tokenName)
+				if(state->ruleSet->rules->at(j)->getNextToken() != NULL
+					&& *state->ruleSet->rules->at(j)->getNextToken() == *tokenName)
 				{
-					currentMatchingRules->push_back(state->ruleSet->at(j));
+					currentMatchingRules->push_back(state->ruleSet->rules->at(j));
 				}
 			}
 

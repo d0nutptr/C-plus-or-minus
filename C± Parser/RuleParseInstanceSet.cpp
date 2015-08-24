@@ -15,6 +15,11 @@ void RuleParseInstanceSet::addRule(Rule * rule)
 	}
 }
 
+void RuleParseInstanceSet::addRule(RuleParseInstance * rule)
+{
+	rules->push_back(rule);
+}
+
 /**
 * returns a set of all definitions for a token
 */
@@ -50,6 +55,56 @@ RuleParseInstance * RuleParseInstanceSet::getNextRuleInstance(RuleParseInstance 
 		{
 			result = test;
 			break;
+		}
+	}
+
+	return result;
+}
+
+std::vector<std::string *> * RuleParseInstanceSet::getAllTerminalsForNonTerminal(std::string * name)
+{
+	std::vector<std::string *> * result = new std::vector<std::string *>();
+
+	std::vector<std::string *> * tempStorage = new std::vector<std::string *>();
+
+	tempStorage->push_back(name);
+	result->push_back(name);
+
+	for(int i = 0; i < tempStorage->size(); i++)
+	{
+		std::vector<RuleParseInstance *> * definitions = getRuleInstanceDefinition(tempStorage->at(i));
+
+		//nonterminal
+		if(definitions->size() > 0)
+		{
+			for(int j = 0; j < definitions->size(); j ++)
+			{
+				RuleParseInstance * instance = definitions->at(j);
+				std::string * potentialNewTokenName = instance->rule->tokens->at(0);
+
+				bool exists = false;
+
+				//to prevent duplicates
+				for(int k = 0; k < tempStorage->size(); k ++)
+				{
+					if(*tempStorage->at(k) == *potentialNewTokenName)
+					{
+						exists = true;
+						break;
+					}
+				}
+
+				if(!exists)
+				{
+					tempStorage->push_back(potentialNewTokenName);
+					result->push_back(potentialNewTokenName);
+				}
+			}
+		}
+		//terminals
+		else
+		{
+			result->push_back(tempStorage->at(i));
 		}
 	}
 
