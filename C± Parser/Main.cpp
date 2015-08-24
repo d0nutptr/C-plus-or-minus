@@ -3,6 +3,7 @@
 #include "TokenType.h"
 #include "MetaTokenConversionFactory.h"
 #include "CPMParserFactory.h"
+#include "ParseResult.h"
 #include <iomanip>
 #include <iostream>
 
@@ -20,7 +21,16 @@ int main()
 	std::vector<MetaToken *> * metaTokens = (new MetaTokenConversionFactory())->convertTokensToMetaTokens(tokens);
 	Parser * parser = CPMParserFactory::generateCPMParser();
 
-	MetaToken * result = parser->parse(metaTokens);
+	ParseResult * result = parser->parse(metaTokens);
+
+	if(result->isValid())
+	{
+		MetaToken * programToken = result->getValidResult();
+	}
+	else
+	{
+		std::vector<MetaToken *> * badStuff = result->getInvalidSet();
+	}
 
 	std::string test;
 	std::cin >> test;
