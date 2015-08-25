@@ -29,12 +29,12 @@ or Object Oriented like this:
             elements = new List();
         }
         
-        void add(String element)
+        function void add(String element)
         {
             elements.add(element);
         }
         
-        String toString()
+        function String toString()
         {
             String value = "<ul>";
             
