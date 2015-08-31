@@ -16,6 +16,7 @@ function_statement
 	expression semi_colon
 	loop
 	conditional
+	constructor_call semi_colon
 variable_declaration
 	type id
 expression
@@ -24,6 +25,7 @@ expression
 	open_paran value close_paran
 	preunary_operator value
 	id postunary_operator
+	id binary_operator value
 	value binary_operator value
 	value question_mark value colon value
 type
@@ -38,8 +40,10 @@ primitive_type
 	void_type
 array_type
 	type open_bracket close_bracket
+	type open_bracket value close_bracket
 assignment_statement
 	id assignment_operator value
+	value assignment_operator value
 	variable_declaration assignment_operator value
 value
 	null
@@ -59,6 +63,7 @@ param
 instantiation
 	new id open_paran param_list close_paran
 	new id open_paran close_paran
+	new array_type
 preunary_operator
 	!
 postunary_operator
@@ -154,3 +159,8 @@ constructor
 	id open_paran parameter_definition_list close_paran open_brace close_brace
 	id open_paran close_paran open_brace function_statements close_brace
 	id open_paran close_paran open_brace close_brace
+constructor_call
+	super open_paran param_list close_paran
+	super open_paran close_paran
+	this open_paran param_list close_paran
+	this open_paran close_paran
