@@ -23,28 +23,28 @@ or Object Oriented like this:
     class UnorganizedList
     {
         List elements;
-        
+    
         UnorganizedList()
         {
             elements = new List();
         }
-        
-        void add(String element)
+    
+        function void add(String element)
         {
             elements.add(element);
         }
-        
-        String toString()
+    
+        function String toString()
         {
             String value = "<ul>";
-            
+    
             for(int i = 0; i < elements.size(); i ++)
             {
-                value += "<li>" + elements.get(i) + "</li>";
+                value = value + "<li>" + elements.get(i) + "</li>";
             }
-            
-            value += "</ul>";
-            
+    
+            value = value + "</ul>";
+    
             return value;
         }
     }
