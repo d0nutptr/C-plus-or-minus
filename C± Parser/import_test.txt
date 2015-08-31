@@ -1,1 +1,53 @@
-i++;
+class IntList : List
+{
+    int[] data;
+
+    List()
+    {
+        data = new int[0];
+    }
+
+    function int size()
+    {
+        return data.length;
+    }
+
+    function void add(int value)
+    {
+        int[] temp = new int[data.length];
+
+        for(int i = 0; i < data.length; i ++)
+        {
+            temp[i] = data[i];
+        }
+
+        data = new int[temp.length + 1];
+
+        for(int i = 0; i < temp.length; i ++)
+        {
+            data[i] = temp[i];
+        }
+
+        data[data.length - 1] = value;
+    }
+
+    function void remove(int index)
+    {
+        if(data.length > 0)
+        {
+            int[] temp = new int[data.length - 1];
+
+            int tempIndex = 0;
+            for(int i = 0; i < data.length; i ++)
+            {
+                if(i != index)
+                {
+                    temp[tempIndex] = data[i];
+                    tempIndex ++;
+                }
+            }
+
+            data = temp;
+        }
+    }
+}

@@ -6,6 +6,9 @@
 #include "ParseResult.h"
 #include <iomanip>
 #include <iostream>
+#include <fstream>
+
+void printMetaToken(MetaToken * token, ofstream * file, int indent);
 
 int main()
 {
@@ -26,6 +29,10 @@ int main()
 	if(result->isValid())
 	{
 		MetaToken * programToken = result->getValidResult();
+		ofstream myFile;
+		myFile.open("parserlog.txt");
+
+		printMetaToken(programToken, &myFile, 0);
 	}
 	else
 	{
@@ -34,4 +41,24 @@ int main()
 
 	std::string test;
 	std::cin >> test;
+}
+
+void printMetaToken(MetaToken * token, ofstream * file, int indent)
+{
+	std::string * tab = new std::string();
+
+	for(int i = 0; i < indent; i ++)
+	{
+		*tab += '\t';
+	}
+
+	*file << *tab << *token->getType()->name << "\n";
+
+	if(token->getContents() != NULL)
+	{
+		for(int i = 0; i < token->getContents()->size(); i ++)
+		{
+			printMetaToken(token->getContents()->at(i), file, indent + 1);
+		}
+	}
 }

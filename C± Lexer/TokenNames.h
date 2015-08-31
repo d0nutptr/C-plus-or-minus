@@ -21,6 +21,7 @@ const string * const TOKEN_RETURN_STATEMENT = new string("return_statement");
 const string * const TOKEN_EXPRESSION = new string("expression");
 const string * const TOKEN_LOOP = new string("loop");
 const string * const TOKEN_CONDITIONAL = new string("conditional");
+const string * const TOKEN_CONSTRUCTOR_CALL = new string("constructor_call");
 
 //variable declaration
 const string * const TOKEN_TYPE = new string("type");
