@@ -15,4 +15,5 @@ private:
 	std::vector<MetaToken *> * failedSet;
 	MetaToken * validResult;
 	bool valid;
+	void reduceResultTree(MetaToken * parent);
 };
