@@ -12,7 +12,7 @@ void printMetaToken(MetaToken * token, ofstream * file, int indent);
 
 int main()
 {
-	Lexer * lexer = CPMLexerFactory::generateCPMLexer("import_test.txt");
+	Lexer * lexer = CPMLexerFactory::generateCPMLexer("ExampleCPlusOrMinusFile.txt");
 	std::vector<Token *> * tokens = new std::vector<Token *>();
 	lexer->beginLexing(tokens);
 
