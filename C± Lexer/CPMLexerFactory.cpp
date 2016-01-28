@@ -1,5 +1,6 @@
 #include "CPMLexerFactory.h"
 #include "TokenNames.h"
+#include <iostream>
 
 Lexer * CPMLexerFactory::generateCPMLexer(std::string file)
 {

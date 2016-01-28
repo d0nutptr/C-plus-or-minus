@@ -13,39 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Tokens">
+      <UniqueIdentifier>{0e56ac16-e434-480e-b8cb-6cae85522281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lexer">
+      <UniqueIdentifier>{6bcfca7c-6430-42bf-8491-5f9d0a44f222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lexer">
+      <UniqueIdentifier>{6645e705-0876-42b9-b7eb-92186ec03896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tokens">
+      <UniqueIdentifier>{e2a1cb45-697d-4f05-bdce-fb50b0adc64e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TokenType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Token.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lexer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CPMLexerFactory.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Tokens</Filter>
     </ClInclude>
     <ClInclude Include="TokenNames.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenType.h">
+      <Filter>Header Files\Tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="CPMLexerFactory.h">
+      <Filter>Header Files\Lexer</Filter>
+    </ClInclude>
+    <ClInclude Include="Lexer.h">
+      <Filter>Header Files\Lexer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TokenType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Token.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CPMLexerFactory.cpp">
+      <Filter>Source Files\Lexer</Filter>
     </ClCompile>
     <ClCompile Include="Lexer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Lexer</Filter>
     </ClCompile>
-    <ClCompile Include="CPMLexerFactory.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Token.cpp">
+      <Filter>Source Files\Tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="TokenType.cpp">
+      <Filter>Source Files\Tokens</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

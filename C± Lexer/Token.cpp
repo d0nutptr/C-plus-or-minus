@@ -1,12 +1,12 @@
 #include "Token.h"
 
-Token::Token(std::string value, TokenType * type)
+Token::Token(std::string * value, TokenType * type)
 {
 	this->type = type;
 	this->value = value;
 }
 
-std::string Token::getName()
+std::string * Token::getName()
 {
 	return this->value;
 }

@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C± Parser", "C± Parser\C�
 		{5E200597-0EC9-4ED0-858B-B978B5A38362} = {5E200597-0EC9-4ED0-858B-B978B5A38362}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C± Compiler", "C± Compiler\C± Compiler.vcxproj", "{1CB90150-DC64-450F-ABF4-7E8CBAF28D15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -22,6 +24,10 @@ Global
 		{CEC45E89-07D0-4085-8963-144644ED07B3}.Debug|Win32.Build.0 = Debug|Win32
 		{CEC45E89-07D0-4085-8963-144644ED07B3}.Release|Win32.ActiveCfg = Release|Win32
 		{CEC45E89-07D0-4085-8963-144644ED07B3}.Release|Win32.Build.0 = Release|Win32
+		{1CB90150-DC64-450F-ABF4-7E8CBAF28D15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1CB90150-DC64-450F-ABF4-7E8CBAF28D15}.Debug|Win32.Build.0 = Debug|Win32
+		{1CB90150-DC64-450F-ABF4-7E8CBAF28D15}.Release|Win32.ActiveCfg = Release|Win32
+		{1CB90150-DC64-450F-ABF4-7E8CBAF28D15}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

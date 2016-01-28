@@ -21,7 +21,7 @@ function ExtendedObj getObjSingleton()
 {
 	if (_obj == null )
 	{
-		_obj = new ExtendedObj(false);
+		_obj = new .ExtendedObj(false);
 	}
 	
 	return _obj;

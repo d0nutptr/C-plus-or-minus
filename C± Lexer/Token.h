@@ -5,10 +5,10 @@
 class Token
 {
 public:
-	Token(std::string, TokenType *);
-	std::string getName();
+	Token(std::string *, TokenType *);
+	std::string * getName();
 	TokenType * getType();
 private:
-	std::string value;
+	std::string * value;
 	TokenType * type;
 };

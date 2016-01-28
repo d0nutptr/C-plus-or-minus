@@ -4,19 +4,21 @@
 
 Lexer::Lexer(char * location)
 {
-	this->sourceLocation = location;
+	std::ifstream inputStream = std::ifstream(location);
+	this->tokenTypes = new std::vector<TokenType *>();
 
 	char bufferChar;
 
-	std::ifstream inputStream;
-	inputStream.open(this->sourceLocation);
-
 	if(inputStream.is_open())
 	{
+		std::string concatenatedString = "";
+
 		while (inputStream.get(bufferChar))
 		{
-			source += bufferChar;
+			concatenatedString += bufferChar;
 		}
+
+		this->source = new std::string(concatenatedString);
 
 		inputStream.close();
 	}
@@ -24,13 +26,14 @@ Lexer::Lexer(char * location)
 
 void Lexer::addTokenType(TokenType * newToken)
 {
-	this->tokenTypes.push_back(newToken);
+	this->tokenTypes->push_back(newToken);
 }
 
 void Lexer::beginLexing(std::vector<Token *> * results)
 {	
 	//so we dont damage the original string
-	std::string * lexableSource = new std::string(source);
+	std::string * lexableSource = new std::string(*source);
+
 	do
 	{
 		int indexOfToken = -1;
@@ -38,9 +41,9 @@ void Lexer::beginLexing(std::vector<Token *> * results)
 
 		//search the token types for the smallest, next match.
 		//in the event of a tie (in size. ie 2 token types are 4 chars long in match) the one with the smallest index value wins
-		for(unsigned int i = 0; i < tokenTypes.size(); i ++)
+		for(unsigned int i = 0; i < tokenTypes->size(); i ++)
 		{
-			std::string * matchResults = tokenTypes[i]->isTypeOfToken(lexableSource);
+			std::string * matchResults = (*tokenTypes)[i]->isTypeOfToken(lexableSource);
 			
 			if(matchResults != NULL)
 			{
@@ -58,9 +61,9 @@ void Lexer::beginLexing(std::vector<Token *> * results)
 
 		if(indexOfToken >= 0)
 		{
-			std::string result = lexableSource->substr(0, sizeOfToken);
+			std::string* result = new std::string(lexableSource->substr(0, sizeOfToken));
 			* lexableSource = lexableSource->substr(sizeOfToken);
-			(*results).push_back(new Token(result, tokenTypes[indexOfToken]));
+			(*results).push_back(new Token(result, (*tokenTypes)[indexOfToken]));
 		}
 		else
 		{

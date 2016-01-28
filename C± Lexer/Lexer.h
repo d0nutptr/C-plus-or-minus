@@ -10,8 +10,7 @@ public:
 	void beginLexing(std::vector<Token *> *);
 	void addTokenType(TokenType *);
 private:
-	char * sourceLocation;
-	std::string source;
-	std::vector<TokenType *> tokenTypes;
+	std::string * source;
+	std::vector<TokenType *> * tokenTypes;
 };
 

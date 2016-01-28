@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\MetaTokens">
+      <UniqueIdentifier>{446eede7-ee71-4b38-ad26-6552eab3332a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rules">
+      <UniqueIdentifier>{acadc503-e53f-43c6-86f8-d1afd84981f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parser">
+      <UniqueIdentifier>{26824bc3-d1b1-4802-bb30-38c59299ba2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MetaTokens">
+      <UniqueIdentifier>{d1ce0636-8bcd-4726-aef1-94307c7a7ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Parser">
+      <UniqueIdentifier>{66fed003-6371-4201-98d6-759e9271733f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Rules">
+      <UniqueIdentifier>{b41c51f9-bfc5-4740-96e6-efe9553cedae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -21,73 +39,70 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MetaToken.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MetaTokenType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MetaTokenConversionFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Parser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CPMParserFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RuleParseInstance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RuleParseInstanceSet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParseState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MetaToken.h">
+      <Filter>Header Files\MetaTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="MetaTokenConversionFactory.h">
+      <Filter>Header Files\MetaTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="MetaTokenType.h">
+      <Filter>Header Files\MetaTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseState.h">
+      <Filter>Header Files\Parser</Filter>
+    </ClInclude>
     <ClInclude Include="ParseResult.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Header Files\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="CPMParserFactory.h">
+      <Filter>Header Files\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="RuleParseInstanceSet.h">
+      <Filter>Header Files\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="RuleParseInstance.h">
+      <Filter>Header Files\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Rule.h">
+      <Filter>Header Files\Rules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MetaToken.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MetaTokenType.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MetaTokens</Filter>
     </ClCompile>
     <ClCompile Include="MetaTokenConversionFactory.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MetaTokens</Filter>
     </ClCompile>
-    <ClCompile Include="Parser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CPMParserFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rule.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MetaTokenType.cpp">
+      <Filter>Source Files\MetaTokens</Filter>
     </ClCompile>
     <ClCompile Include="RuleParseInstance.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rules</Filter>
     </ClCompile>
     <ClCompile Include="RuleParseInstanceSet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rules</Filter>
     </ClCompile>
-    <ClCompile Include="ParseState.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Rule.cpp">
+      <Filter>Source Files\Rules</Filter>
     </ClCompile>
     <ClCompile Include="ParseResult.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseState.cpp">
+      <Filter>Source Files\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="CPMParserFactory.cpp">
+      <Filter>Source Files\Parser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
